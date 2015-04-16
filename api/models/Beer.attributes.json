@@ -1,0 +1,1 @@
+{"attributes":{"name":{"type":"string","defaultsTo":null},"userId":{"type":"string","defaultsTo":null},"expirationDate":{"type":"string","defaultsTo":null},"tried":{"type":"boolean","defaultsTo":null}},"globalId":"Beer","identity":"beer"}

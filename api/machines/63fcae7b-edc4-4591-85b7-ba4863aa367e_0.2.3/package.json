@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "machinepack-sessionauth": "0.2.3"
+  },
+  "machinepack": {
+    "machines": []
+  }
+}

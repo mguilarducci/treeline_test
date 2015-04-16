@@ -1,0 +1,20 @@
+{
+  "dependencies": {},
+  "machinepack": {
+    "machines": ["create_beer", "create_user", "destroy_beer", "destroy_user", "findOne_beer", "findOne_user", "blueprintFind_beer", "blueprintFind_user", "find_beer", "find_user", "update_beer", "update_user"],
+    "machineVersions": {
+      "create_beer": "0.0.5",
+      "create_user": "0.0.4",
+      "destroy_beer": "0.0.5",
+      "destroy_user": "0.0.4",
+      "findOne_beer": "0.0.5",
+      "findOne_user": "0.0.4",
+      "blueprintFind_beer": "0.0.5",
+      "blueprintFind_user": "0.0.4",
+      "find_beer": "0.0.5",
+      "find_user": "0.0.4",
+      "update_beer": "0.0.5",
+      "update_user": "0.0.4"
+    }
+  }
+}
