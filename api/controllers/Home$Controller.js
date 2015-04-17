@@ -22,13 +22,13 @@ module.exports = {
                         return exits.respond({
                             data: "/signup",
                             action: "redirect",
-                            status: 500
+                            status: "200"
                         });
 
                     },
                     "success": function(checkLoginStatus) {
                         // Find One User
-                        sails.machines['_project_3032_0.0.0'].findOne_user({
+                        sails.machines['_project_3032_0.0.1'].findOne_user({
                             "criteria": {
                                 id: (req.session.me ? (req.session.me + '') : '')
                             }

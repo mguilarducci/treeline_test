@@ -4,13 +4,14 @@ module.exports = {
     "success": {
       "friendlyName": "then",
       "example": [{
-        "name": "scott",
         "userId": "scott",
+        "beerId": "scott",
         "expirationDate": "scott",
-        "tried": true,
+        "beerName": "scott",
+        "count": 123,
         "id": 123,
-        "createdAt": "2015-04-16T18:35:23.356Z",
-        "updatedAt": "2015-04-16T18:35:23.356Z"
+        "createdAt": "2015-04-17T21:43:01.439Z",
+        "updatedAt": "2015-04-17T21:43:01.439Z"
       }]
     },
     "error": {
@@ -21,12 +22,12 @@ module.exports = {
   "fn": function(inputs, exits, env) {
     var where = env.req.params.all();
     where = env.sails.util.omit(where, ['limit', 'skip', 'sort']);
-    env.sails.models.beer.find(where).exec(function(err, records) {
+    env.sails.models.stock.find(where).exec(function(err, records) {
       if (err) {
         return exits.error(err);
       }
       return exits.success(records);
     });
   },
-  "identity": "blueprintFind_beer"
+  "identity": "blueprintFind_stock"
 };

@@ -32,8 +32,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/guilarducci/beerpack.git"
+    "url": "git://github.com/mguilarducci/beerpack.git"
   },
-  "author": "guilarducci",
+  "author": "mguilarducci",
   "license": ""
 }

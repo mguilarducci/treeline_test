@@ -1,0 +1,29 @@
+<!-- beer FORM --> 
+<form ng-submit="submit()" id="sign-up-form" class="form-signin" name="beer">
+  <h2 class="form-signin-heading">Create a new beer</h2> 
+  <div class="row">
+    <div class="control-group form-group col-md-12"
+    ng-class="{'has-error':beer.name.$invalid &&
+                          beer.name.$dirty}">
+      <label>Beer name</label>
+
+      <input type="text" class="form-control" placeholder="Glacial um real" name="name" ng-model="beerForm.name" ng-maxlength="50" required>
+
+      <span class="help-block has-error" ng-if="beer.name.$dirty">
+        <span ng-show="beer.name.$error.required">Name is required.</span>
+        <span ng-show="beer.name.$error.maxlength">The name cannot be more than 50 characters.</span>
+      </span>
+    </div>
+
+  <br/>
+
+  <!-- Disable beer button until the form has no errors -->
+  <button class="btn btn-primary btn-lg btn-block" type="submit" ng-disabled="beer.$invalid">
+    <span ng-show="!beerForm.loading">Create Beer</span>
+    <span class="overlord-loading-spinner fa fa-spinner" ng-show="beerForm.loading" ></span>
+    <span ng-show="beerForm.loading">Creating beer</span>
+  </button>
+  <i>(untappd comes soon)</i>
+
+  <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+</form>

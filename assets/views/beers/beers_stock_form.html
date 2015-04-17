@@ -1,0 +1,41 @@
+<!-- beer FORM --> 
+<form ng-submit="submitStock()" id="sign-up-form" class="form-signin" name="beer" 
+  data-ng-init="findOne()">
+  <h2 class="form-signin-heading">{{beer.name}}</h2> 
+  <div class="row">
+    <div class="control-group form-group col-md-12"
+      ng-class="{'has-error':beer.expirationDate.$invalid &&
+                          beer.expirationDate.$dirty}">
+      <label>Expiration date</label>
+
+      <input type="text" class="form-control" placeholder="2015-03-12" name="name" ng-model="beerForm.expirationDate" required>
+
+      <span class="help-block has-error" ng-if="beer.expirationDate.$dirty">
+        <span ng-show="beer.name.$error.required">Expiration date is required.</span>
+      </span>
+    </div>
+
+    <div class="control-group form-group col-md-12"
+      ng-class="{'has-error':beer.count.$invalid &&
+                          beer.count.$dirty}">
+      <label>Count</label>
+
+      <input type="number" class="form-control" placeholder="1" name="name" ng-model="beerForm.count" required>
+
+      <span class="help-block has-error" ng-if="beer.count.$dirty">
+        <span ng-show="beer.name.$error.required">Expiration date is required.</span>
+      </span>
+    </div>
+
+  <br/>
+
+  <!-- Disable beer button until the form has no errors -->
+  <button class="btn btn-primary btn-lg btn-block" type="submit" ng-disabled="beer.$invalid">
+    <span ng-show="!beerForm.loading">Update your stock</span>
+    <span class="overlord-loading-spinner fa fa-spinner" ng-show="beerForm.loading" ></span>
+    <span ng-show="beerForm.loading">Updating...</span>
+  </button>
+  <i>(untappd comes soon)</i>
+
+  <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+</form>

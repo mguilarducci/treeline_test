@@ -1,0 +1,26 @@
+{
+  "dependencies": {},
+  "machinepack": {
+    "machines": ["create_beer", "create_stock", "create_user", "destroy_beer", "destroy_stock", "destroy_user", "findOne_beer", "findOne_stock", "findOne_user", "blueprintFind_beer", "blueprintFind_stock", "blueprintFind_user", "find_beer", "find_stock", "find_user", "update_beer", "update_stock", "update_user"],
+    "machineVersions": {
+      "create_beer": "0.0.9",
+      "create_stock": "0.0.7",
+      "create_user": "0.0.4",
+      "destroy_beer": "0.0.9",
+      "destroy_stock": "0.0.7",
+      "destroy_user": "0.0.4",
+      "findOne_beer": "0.0.9",
+      "findOne_stock": "0.0.7",
+      "findOne_user": "0.0.4",
+      "blueprintFind_beer": "0.0.9",
+      "blueprintFind_stock": "0.0.7",
+      "blueprintFind_user": "0.0.4",
+      "find_beer": "0.0.9",
+      "find_stock": "0.0.7",
+      "find_user": "0.0.4",
+      "update_beer": "0.0.9",
+      "update_stock": "0.0.7",
+      "update_user": "0.0.4"
+    }
+  }
+}

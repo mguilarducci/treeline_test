@@ -1,0 +1,1 @@
+{"attributes":{"userId":{"type":"string","defaultsTo":null},"beerId":{"type":"string","defaultsTo":null},"expirationDate":{"type":"string","defaultsTo":null},"beerName":{"type":"string","defaultsTo":null},"count":{"type":"float","defaultsTo":null}},"globalId":"Stock","identity":"stock"}

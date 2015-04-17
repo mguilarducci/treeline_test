@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+      <section data-ng-init="find()">
+ 				<div class="page-header">
+        		<h1>Beers</h1>
+    		</div>
+    		<div class="list-group">
+    			<span class="overlord-loading-spinner fa fa-spinner" ng-show="beerForm.loading" ></span>
+	    		<li class="list-group-item" data-ng-repeat="beer in beers">
+	    			 <a href="#/beers/{{beer.id}}">
+             <h4 class="list-group-item-heading" data-ng-bind="beer.name">
+	    			 </h4>
+             </a>
+	    			 <p class="list-group-item-text">
+	    			 	<i>untappd datails come soon</i>
+	    			 </p>
+
+	    			 <small class="list-group-item-text">
+                Posted on
+                <span data-ng-bind="beer.createdAt | date:'medium'"></span>
+            </small>
+
+	    		</li>
+    		</div>
+		</section>
+  </div>
+</div>

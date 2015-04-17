@@ -11,12 +11,10 @@ module.exports = {
       "friendlyName": "then",
       "example": [{
         "name": "scott",
-        "userId": "scott",
-        "expirationDate": "scott",
-        "tried": true,
+        "createdBy": "scott",
         "id": 123,
-        "createdAt": "2015-04-16T18:35:23.356Z",
-        "updatedAt": "2015-04-16T18:35:23.356Z"
+        "createdAt": "2015-04-17T18:59:18.696Z",
+        "updatedAt": "2015-04-17T18:59:18.696Z"
       }]
     },
     "error": {
