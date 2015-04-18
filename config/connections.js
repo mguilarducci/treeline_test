@@ -65,6 +65,15 @@ module.exports.connections = {
     // database: 'your_mongo_db_name_here'
   },
 
+  composeioServer: {
+    adapter: 'sails-mongo',
+    host: process.env.COMPOSE_URL,
+    port: process.env.COMPOSE_PORT,
+    user: process.env.COMPOSE_USER,
+    password: process.env.COMPOSE_PASSWORD,
+    database: process.env.COMPOSE_DATABASE
+  },
+
   /***************************************************************************
   *                                                                          *
   * PostgreSQL is another officially supported relational database.          *
