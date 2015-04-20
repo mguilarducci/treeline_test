@@ -67,11 +67,11 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // adapter: 'mongo',
-  // host: 'localhost',
-  // port: 27017,
-  // db: 'sails',
-  // collection: 'sessions',
+  adapter: 'mongo',
+  host: process.env.COMPOSE_URL,
+  port: process.env.COMPOSE_PORT,
+  db: process.env.COMPOSE_DATABASE,
+  collection: 'sessions',
 
   /***************************************************************************
   *                                                                          *
@@ -82,8 +82,8 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // username: '',
-  // password: '',
+  username: process.env.COMPOSE_USER,
+  password: process.env.COMPOSE_PASSWORD
   // auto_reconnect: false,
   // ssl: false,
   // stringify: true
