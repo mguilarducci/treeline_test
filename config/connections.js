@@ -58,15 +58,6 @@ module.exports.connections = {
   ***************************************************************************/
   someMongodbServer: {
     adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
-    // user: 'username',
-    // password: 'password',
-    // database: 'your_mongo_db_name_here'
-  },
-
-  composeioServer: {
-    adapter: 'sails-mongo',
     host: process.env.COMPOSE_URL,
     port: process.env.COMPOSE_PORT,
     user: process.env.COMPOSE_USER,
