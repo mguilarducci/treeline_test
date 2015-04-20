@@ -34,7 +34,8 @@ var jsFilesToInject = [
   // will be injected here in no particular order.
   'js/public/signup/SignupModule.js',
   'js/private/beers/BeerModule.js',
-  'js/public/homepage/HomepageModule.js',
+  
+  'js/public/core/ApplicationModule.js',
   'js/**/*.js'
 ];
 
