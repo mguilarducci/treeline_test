@@ -87,27 +87,41 @@ module.exports = {
 
                                             },
                                             "success": function(getImageURL) {
-                                                // Create User
-                                                sails.machines['_project_3032_0.0.1'].create_user({
-                                                    "email": inputs.email,
-                                                    "name": inputs.name,
-                                                    "password": encryptPassword,
-                                                    "gravatarUrl": getImageURL
-                                                }).setEnvironment({
-                                                    sails: sails
-                                                }).exec({
-                                                    "success": function(createUser) {
-                                                        return exits.respond({
-                                                            data: createUser,
-                                                            action: "respond_with_result_and_status",
-                                                            status: 200
+                                                // Generate unique token
+                                                sails.machines['0ccd2b47-a58e-4f8c-a3fd-d5a4ec77bfd5_4.4.0'].generateUniqueToken({}).exec({
+                                                    "error": function(generateUniqueToken) {
+                                                        return exits.error({
+                                                            data: generateUniqueToken,
+                                                            status: 500
                                                         });
 
                                                     },
-                                                    "error": function(createUser) {
-                                                        return exits.error({
-                                                            data: createUser,
-                                                            status: 500
+                                                    "success": function(generateUniqueToken) {
+                                                        // Create User
+                                                        sails.machines['_project_3032_0.0.1'].create_user({
+                                                            "name": inputs.name,
+                                                            "email": inputs.email,
+                                                            "gravatarUrl": getImageURL,
+                                                            "password": encryptPassword,
+                                                            "uniqueString": generateUniqueToken
+                                                        }).setEnvironment({
+                                                            sails: sails
+                                                        }).exec({
+                                                            "success": function(createUser) {
+                                                                return exits.respond({
+                                                                    data: createUser,
+                                                                    action: "respond_with_result_and_status",
+                                                                    status: 200
+                                                                });
+
+                                                            },
+                                                            "error": function(createUser) {
+                                                                return exits.error({
+                                                                    data: createUser,
+                                                                    status: 500
+                                                                });
+
+                                                            }
                                                         });
 
                                                     }

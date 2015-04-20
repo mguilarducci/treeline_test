@@ -1,1 +1,1 @@
-{"attributes":{"name":{"type":"string","defaultsTo":null},"createdBy":{"type":"string","defaultsTo":null}},"globalId":"Beer","identity":"beer"}
+{"attributes":{"name":{"type":"string","defaultsTo":null},"createdBy":{"type":"string","defaultsTo":null},"uniqueString":{"type":"string","defaultsTo":null}},"globalId":"Beer","identity":"beer"}

@@ -7,7 +7,7 @@
     		<div class="list-group">
     			<span class="overlord-loading-spinner fa fa-spinner" ng-show="beerForm.loading" ></span>
 	    		<li class="list-group-item" data-ng-repeat="beer in beers">
-	    			 <a href="#/beers/{{beer.id}}">
+	    			 <a href="#/beers/{{beer.uniqueString}}">
              <h4 class="list-group-item-heading" data-ng-bind="beer.name">
 	    			 </h4>
              </a>

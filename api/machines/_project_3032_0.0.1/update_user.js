@@ -1,20 +1,24 @@
 module.exports = {
   "inputs": {
+    "name": {
+      "example": "scott",
+      "friendlyName": "name"
+    },
     "email": {
       "example": "scott",
       "friendlyName": "email"
     },
-    "name": {
+    "gravatarUrl": {
       "example": "scott",
-      "friendlyName": "name"
+      "friendlyName": "gravatarUrl"
     },
     "password": {
       "example": "scott",
       "friendlyName": "password"
     },
-    "gravatarUrl": {
+    "uniqueString": {
       "example": "scott",
-      "friendlyName": "gravatarUrl"
+      "friendlyName": "uniqueString"
     },
     "criteria": {
       "friendlyName": "criteria",
@@ -26,13 +30,14 @@ module.exports = {
     "success": {
       "friendlyName": "then",
       "example": [{
-        "email": "scott",
         "name": "scott",
-        "password": "scott",
+        "email": "scott",
         "gravatarUrl": "scott",
+        "password": "scott",
+        "uniqueString": "scott",
         "id": 123,
-        "createdAt": "2015-04-16T16:39:33.044Z",
-        "updatedAt": "2015-04-16T16:39:33.044Z"
+        "createdAt": "2015-04-20T21:38:42.623Z",
+        "updatedAt": "2015-04-20T21:38:42.623Z"
       }]
     },
     "error": {

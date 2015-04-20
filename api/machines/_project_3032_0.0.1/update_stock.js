@@ -20,6 +20,10 @@ module.exports = {
       "example": 123,
       "friendlyName": "count"
     },
+    "uniqueString": {
+      "example": "scott",
+      "friendlyName": "uniqueString"
+    },
     "criteria": {
       "friendlyName": "criteria",
       "typeclass": "dictionary",
@@ -35,9 +39,10 @@ module.exports = {
         "expirationDate": "scott",
         "beerName": "scott",
         "count": 123,
+        "uniqueString": "scott",
         "id": 123,
-        "createdAt": "2015-04-17T21:43:01.439Z",
-        "updatedAt": "2015-04-17T21:43:01.439Z"
+        "createdAt": "2015-04-20T21:38:02.415Z",
+        "updatedAt": "2015-04-20T21:38:02.415Z"
       }]
     },
     "error": {

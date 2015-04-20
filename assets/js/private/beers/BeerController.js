@@ -41,7 +41,7 @@ angular.module('BeerModule').controller('BeerController', ['$scope', '$http', '$
 
 		// Submit request to Sails.
 		$http.post('/api/stock', {
-			beerId: $scope.beer.id,
+			beerId: $scope.beer.uniqueString,
 			count: $scope.beerForm.count,
 			expirationDate: $scope.beerForm.expirationDate
 

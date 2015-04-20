@@ -1,12 +1,16 @@
 module.exports = {
   "inputs": {
+    "createdBy": {
+      "example": "scott",
+      "friendlyName": "createdBy"
+    },
     "name": {
       "example": "scott",
       "friendlyName": "name"
     },
-    "createdBy": {
+    "uniqueString": {
       "example": "scott",
-      "friendlyName": "createdBy"
+      "friendlyName": "uniqueString"
     },
     "criteria": {
       "friendlyName": "criteria",
@@ -18,11 +22,12 @@ module.exports = {
     "success": {
       "friendlyName": "then",
       "example": [{
-        "name": "scott",
         "createdBy": "scott",
+        "name": "scott",
+        "uniqueString": "scott",
         "id": 123,
-        "createdAt": "2015-04-17T18:59:18.696Z",
-        "updatedAt": "2015-04-17T18:59:18.696Z"
+        "createdAt": "2015-04-20T21:38:24.890Z",
+        "updatedAt": "2015-04-20T21:38:24.890Z"
       }]
     },
     "error": {

@@ -30,7 +30,7 @@ module.exports = {
                         // Find One User
                         sails.machines['_project_3032_0.0.1'].findOne_user({
                             "criteria": {
-                                id: (req.session.me ? (req.session.me + '') : '')
+                                email: (req.session.me ? (req.session.me + '') : '')
                             }
                         }).setEnvironment({
                             sails: sails

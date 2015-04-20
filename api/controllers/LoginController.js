@@ -59,7 +59,7 @@ module.exports = {
                                     "success": function(checkPassword) {
                                         // Log in
                                         sails.machines['63fcae7b-edc4-4591-85b7-ba4863aa367e_0.2.3'].login({
-                                            "id": (findOneUser && findOneUser.id)
+                                            "id": (findOneUser && findOneUser.email)
                                         }).setEnvironment({
                                             req: req
                                         }).exec({
