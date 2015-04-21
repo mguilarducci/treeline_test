@@ -33,7 +33,7 @@ module.exports = {
                     },
                     "otherwise": function(checkLoginStatus) {
                         // Find One User
-                        sails.machines['_project_3032_0.0.2'].findOne_user({
+                        sails.machines['_project_3032_0.0.4'].findOne_user({
                             "criteria": {
                                 email: inputs.email
                             }
@@ -98,7 +98,7 @@ module.exports = {
                                                     },
                                                     "success": function(generateUniqueToken) {
                                                         // Create User
-                                                        sails.machines['_project_3032_0.0.2'].create_user({
+                                                        sails.machines['_project_3032_0.0.4'].create_user({
                                                             "name": inputs.name,
                                                             "email": inputs.email,
                                                             "gravatarUrl": getImageURL,

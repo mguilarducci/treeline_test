@@ -28,7 +28,7 @@ module.exports = {
                     },
                     "success": function(checkLoginStatus) {
                         // List Stock
-                        sails.machines['_project_3032_0.0.2'].find_stock({
+                        sails.machines['_project_3032_0.0.4'].find_stock({
                             "criteria": {
                                 userId: (req.session.me ? (req.session.me + '') : ''),
                                 count: {
@@ -120,7 +120,7 @@ module.exports = {
                     },
                     "success": function(checkLoginStatus) {
                         // Find One Stock
-                        sails.machines['_project_3032_0.0.2'].findOne_stock({
+                        sails.machines['_project_3032_0.0.4'].findOne_stock({
                             "criteria": {
                                 userId: (req.session.me ? (req.session.me + '') : ''),
                                 beerId: inputs.beerId,
@@ -131,7 +131,7 @@ module.exports = {
                         }).exec({
                             "success": function(findOneStock) {
                                 // Update Stock
-                                sails.machines['_project_3032_0.0.2'].update_stock({
+                                sails.machines['_project_3032_0.0.4'].update_stock({
                                     "count": inputs.count,
                                     "criteria": {
                                         id: (findOneStock && findOneStock.id)
@@ -166,7 +166,7 @@ module.exports = {
                             },
                             "notFound": function(findOneStock) {
                                 // Find One Beer
-                                sails.machines['_project_3032_0.0.2'].findOne_beer({
+                                sails.machines['_project_3032_0.0.4'].findOne_beer({
                                     "criteria": {
                                         uniqueString: inputs.beerId
                                     }
@@ -185,7 +185,7 @@ module.exports = {
                                             },
                                             "success": function(generateUniqueToken) {
                                                 // Create Stock
-                                                sails.machines['_project_3032_0.0.2'].create_stock({
+                                                sails.machines['_project_3032_0.0.4'].create_stock({
                                                     "userId": (req.session.me ? (req.session.me + '') : ''),
                                                     "beerId": inputs.beerId,
                                                     "expirationDate": inputs.expirationDate,
