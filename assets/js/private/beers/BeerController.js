@@ -1,4 +1,6 @@
-angular.module('BeerModule').controller('BeerController', ['$scope', '$http', '$routeParams', 'toastr', function($scope, $http, $routeParams, toastr){
+angular.module('BeerModule').controller('BeerController', 
+	['$scope', '$http', '$routeParams', '$filter', 'toastr', 
+	function($scope, $http, $routeParams, $filter, toastr){
 
 	// set-up loading state
 	$scope.beerForm = {
@@ -43,7 +45,7 @@ angular.module('BeerModule').controller('BeerController', ['$scope', '$http', '$
 		$http.post('/stock', {
 			beerId: $scope.beer.uniqueString,
 			count: $scope.beerForm.count,
-			expirationDate: $scope.beerForm.expirationDate
+			expirationDate: $filter('date')($scope.beerForm.expirationDate, 'yyyy-MM-dd')
 
 		})
 		.then(function onSuccess(sailsResponse) {
