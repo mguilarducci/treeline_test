@@ -1,5 +1,84 @@
 var Machine = require("machine");
 module.exports = {
+    get_find: function(req, res) {
+        Machine.build({
+            inputs: {},
+            exits: {
+                respond: {}
+            },
+            fn: function(inputs, exits) {
+                // Check login status
+                sails.machines['63fcae7b-edc4-4591-85b7-ba4863aa367e_0.2.3'].checkLogin({}).setEnvironment({
+                    req: req
+                }).exec({
+                    "error": function(checkLoginStatus) {
+                        return exits.error({
+                            data: checkLoginStatus,
+                            status: 500
+                        });
+
+                    },
+                    "otherwise": function(checkLoginStatus) {
+                        return exits.respond({
+                            data: "/signup",
+                            action: "redirect",
+                            status: 500
+                        });
+
+                    },
+                    "success": function(checkLoginStatus) {
+                        // List Stock
+                        sails.machines['_project_3032_0.0.2'].find_stock({
+                            "criteria": {
+                                userId: (req.session.me ? (req.session.me + '') : ''),
+                                count: {
+                                    ">": 0
+                                }
+                            }
+                        }).setEnvironment({
+                            sails: sails
+                        }).exec({
+                            "success": function(listStock) {
+                                // Sort
+                                sails.machines['0ccd2b47-a58e-4f8c-a3fd-d5a4ec77bfd5_4.4.0'].sort({
+                                    "collection": listStock,
+                                    "key": "expirationDate"
+                                }).exec({
+                                    "error": function(sort) {
+                                        return exits.error({
+                                            data: sort,
+                                            status: 500
+                                        });
+
+                                    },
+                                    "success": function(sort) {
+                                        return exits.respond({
+                                            data: sort,
+                                            action: "respond_with_result_and_status",
+                                            status: 200
+                                        });
+
+                                    }
+                                });
+
+                            },
+                            "error": function(listStock) {
+                                return exits.error({
+                                    data: listStock,
+                                    status: 500
+                                });
+
+                            }
+                        });
+
+                    }
+                });
+            }
+        }).configure(req.params.all(), {
+            respond: res.response,
+            error: res.negotiate
+        }).exec();
+    },
     post_create: function(req, res) {
         Machine.build({
             inputs: {
@@ -41,7 +120,7 @@ module.exports = {
                     },
                     "success": function(checkLoginStatus) {
                         // Find One Stock
-                        sails.machines['_project_3032_0.0.1'].findOne_stock({
+                        sails.machines['_project_3032_0.0.2'].findOne_stock({
                             "criteria": {
                                 userId: (req.session.me ? (req.session.me + '') : ''),
                                 beerId: inputs.beerId,
@@ -52,7 +131,7 @@ module.exports = {
                         }).exec({
                             "success": function(findOneStock) {
                                 // Update Stock
-                                sails.machines['_project_3032_0.0.1'].update_stock({
+                                sails.machines['_project_3032_0.0.2'].update_stock({
                                     "count": inputs.count,
                                     "criteria": {
                                         id: (findOneStock && findOneStock.id)
@@ -87,7 +166,7 @@ module.exports = {
                             },
                             "notFound": function(findOneStock) {
                                 // Find One Beer
-                                sails.machines['_project_3032_0.0.1'].findOne_beer({
+                                sails.machines['_project_3032_0.0.2'].findOne_beer({
                                     "criteria": {
                                         uniqueString: inputs.beerId
                                     }
@@ -106,7 +185,7 @@ module.exports = {
                                             },
                                             "success": function(generateUniqueToken) {
                                                 // Create Stock
-                                                sails.machines['_project_3032_0.0.1'].create_stock({
+                                                sails.machines['_project_3032_0.0.2'].create_stock({
                                                     "userId": (req.session.me ? (req.session.me + '') : ''),
                                                     "beerId": inputs.beerId,
                                                     "expirationDate": inputs.expirationDate,
@@ -151,85 +230,6 @@ module.exports = {
                                         });
 
                                     }
-                                });
-
-                            }
-                        });
-
-                    }
-                });
-            }
-        }).configure(req.params.all(), {
-            respond: res.response,
-            error: res.negotiate
-        }).exec();
-    },
-    get_find: function(req, res) {
-        Machine.build({
-            inputs: {},
-            exits: {
-                respond: {}
-            },
-            fn: function(inputs, exits) {
-                // Check login status
-                sails.machines['63fcae7b-edc4-4591-85b7-ba4863aa367e_0.2.3'].checkLogin({}).setEnvironment({
-                    req: req
-                }).exec({
-                    "error": function(checkLoginStatus) {
-                        return exits.error({
-                            data: checkLoginStatus,
-                            status: 500
-                        });
-
-                    },
-                    "otherwise": function(checkLoginStatus) {
-                        return exits.respond({
-                            data: "/signup",
-                            action: "redirect",
-                            status: 500
-                        });
-
-                    },
-                    "success": function(checkLoginStatus) {
-                        // List Stock
-                        sails.machines['_project_3032_0.0.1'].find_stock({
-                            "criteria": {
-                                userId: (req.session.me ? (req.session.me + '') : ''),
-                                count: {
-                                    ">": 0
-                                }
-                            }
-                        }).setEnvironment({
-                            sails: sails
-                        }).exec({
-                            "success": function(listStock) {
-                                // Sort
-                                sails.machines['0ccd2b47-a58e-4f8c-a3fd-d5a4ec77bfd5_4.4.0'].sort({
-                                    "collection": listStock,
-                                    "key": "expirationDate"
-                                }).exec({
-                                    "error": function(sort) {
-                                        return exits.error({
-                                            data: sort,
-                                            status: 500
-                                        });
-
-                                    },
-                                    "success": function(sort) {
-                                        return exits.respond({
-                                            data: sort,
-                                            action: "respond_with_result_and_status",
-                                            status: 200
-                                        });
-
-                                    }
-                                });
-
-                            },
-                            "error": function(listStock) {
-                                return exits.error({
-                                    data: listStock,
-                                    status: 500
                                 });
 
                             }

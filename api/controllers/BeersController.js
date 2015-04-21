@@ -33,7 +33,7 @@ module.exports = {
                     },
                     "success": function(checkLoginStatus) {
                         // Find One Beer
-                        sails.machines['_project_3032_0.0.1'].findOne_beer({
+                        sails.machines['_project_3032_0.0.2'].findOne_beer({
                             "criteria": {
                                 name: inputs.name
                             }
@@ -67,7 +67,7 @@ module.exports = {
                                     },
                                     "success": function(generateUniqueToken) {
                                         // Create Beer
-                                        sails.machines['_project_3032_0.0.1'].create_beer({
+                                        sails.machines['_project_3032_0.0.2'].create_beer({
                                             "createdBy": (req.session.me ? (req.session.me + '') : ''),
                                             "name": inputs.name,
                                             "uniqueString": generateUniqueToken
@@ -137,7 +137,7 @@ module.exports = {
                     },
                     "success": function(checkLoginStatus) {
                         // Find One Beer
-                        sails.machines['_project_3032_0.0.1'].findOne_beer({
+                        sails.machines['_project_3032_0.0.2'].findOne_beer({
                             "criteria": {
                                 uniqueString: inputs.id
                             }
@@ -204,7 +204,7 @@ module.exports = {
                     },
                     "success": function(checkLoginStatus) {
                         // List Beer
-                        sails.machines['_project_3032_0.0.1'].find_beer({}).setEnvironment({
+                        sails.machines['_project_3032_0.0.2'].find_beer({}).setEnvironment({
                             sails: sails
                         }).exec({
                             "success": function(listBeer) {

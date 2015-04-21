@@ -2,18 +2,24 @@
   <div class="row">
       <section data-ng-init="findStock()">
  				<div class="page-header">
-        		<h1>Beers</h1>
+        		<h1>My beers</h1>
     		</div>
+
+        <div class="control-group form-group">
+          <input type="text" class="form-control" ng-model="searchBeerText" 
+            placeholder="Search by beer name or expiration date (yyyy-MM-dd)"  />
+        </div>
+
     		<div class="list-group">
     			<span class="overlord-loading-spinner fa fa-spinner" ng-show="beerForm.loading" ></span>
-	    		<li class="list-group-item" data-ng-repeat="beer in beers">
+	    		<li class="list-group-item" data-ng-repeat="beer in beers | filter:searchBeerText">
             <span class="badge">{{beer.count}}</span>
 	    			 <a href="#/beers/{{beer.beerId}}">
                <h4 class="list-group-item-heading" data-ng-bind="beer.beerName">
   	    			 </h4>
              </a>
              <p class="list-group-item-text">
-              <b>Expiration date: {{beer.expirationDate}}</b>
+              <b>Expiration date: {{beer.expirationDate | date:'yyyy-MM-dd'}}</b>
              </p>
 
 	    			 <p class="list-group-item-text">
@@ -22,7 +28,7 @@
 
 	    			 <small class="list-group-item-text">
                 Posted on
-                <span data-ng-bind="beer.createdAt | date:'medium'"></span>
+                <span data-ng-bind="beer.createdAt | date:'dd/MM/yyyy'"></span>
             </small>
 
 	    		</li>

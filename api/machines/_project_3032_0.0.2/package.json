@@ -1,7 +1,7 @@
 {
   "dependencies": {},
   "machinepack": {
-    "machines": ["create_beer", "create_stock", "create_user", "destroy_beer", "destroy_stock", "destroy_user", "findOne_beer", "findOne_stock", "findOne_user", "blueprintFind_beer", "blueprintFind_stock", "blueprintFind_user", "find_beer", "find_stock", "find_user", "update_beer", "update_stock", "update_user"],
+    "machines": ["create_beer", "create_stock", "create_user", "destroy_beer", "destroy_stock", "destroy_user", "findOne_beer", "findOne_stock", "findOne_user", "blueprintFind_beer", "blueprintFind_stock", "blueprintFind_user", "find_beer", "find_stock", "find_user", "ProcessFacebookAuthCode", "update_beer", "update_stock", "update_user"],
     "machineVersions": {
       "create_beer": "0.0.10",
       "create_stock": "0.0.8",
@@ -18,6 +18,7 @@
       "find_beer": "0.0.10",
       "find_stock": "0.0.8",
       "find_user": "0.0.5",
+      "ProcessFacebookAuthCode": "0.0.0",
       "update_beer": "0.0.10",
       "update_stock": "0.0.8",
       "update_user": "0.0.5"
