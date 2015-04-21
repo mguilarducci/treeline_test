@@ -116,5 +116,34 @@ angular.module('BeerModule').controller('BeerController',
 			});
 	};
 
+	$scope.stockAdd = function(index) {
+		var url = '/stock/' + $scope.beers[index].uniqueString + '/add'; 
+		updateStock(index, url);
+	};
+
+	$scope.stockSubtract = function(index) {
+		var url = '/stock/' + $scope.beers[index].uniqueString + '/subtract'; 
+		updateStock(index, url);
+	};
+
+	var updateStock = function(index, url) {
+		$http.put(url)
+			.then(function onSuccess(sailsResponse) {
+				if(sailsResponse.status === 204) {
+					$scope.beers[index].count = 0;
+				} else {
+					$scope.beers[index] = sailsResponse.data[0];
+				}
+			})
+			.catch(function onError(sailsResponse) {
+				if (sailsResponse.status !== 200) {
+					toastr.error('Please try again.', 'Error');
+					return;
+				}
+			})
+			.finally(function eitherWay(){
+			});
+	};
+
 
 }]);
