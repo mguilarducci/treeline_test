@@ -108,10 +108,26 @@ module.exports = {
                                                             sails: sails
                                                         }).exec({
                                                             "success": function(createUser) {
-                                                                return exits.respond({
-                                                                    data: createUser,
-                                                                    action: "respond_with_result_and_status",
-                                                                    status: 200
+                                                                // Log in
+                                                                sails.machines['63fcae7b-edc4-4591-85b7-ba4863aa367e_0.2.3'].login({
+                                                                    "id": (createUser && createUser.email)
+                                                                }).setEnvironment({
+                                                                    req: req
+                                                                }).exec({
+                                                                    "error": function(logIn) {
+                                                                        return exits.error({
+                                                                            data: logIn,
+                                                                            status: 500
+                                                                        });
+
+                                                                    },
+                                                                    "success": function(logIn) {
+                                                                        return exits.respond({
+                                                                            action: "respond_with_status",
+                                                                            status: 200
+                                                                        });
+
+                                                                    }
                                                                 });
 
                                                             },
