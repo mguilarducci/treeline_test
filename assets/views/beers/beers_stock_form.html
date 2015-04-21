@@ -8,7 +8,7 @@
                           beer.expirationDate.$dirty}">
       <label>Expiration date</label>
 
-      <input type="text" class="form-control" placeholder="2015-03-12" name="name" ng-model="beerForm.expirationDate" required>
+      <input type="date" class="form-control" placeholder="2015-03-12" name="name" ng-model="beerForm.expirationDate" required>
 
       <span class="help-block has-error" ng-if="beer.expirationDate.$dirty">
         <span ng-show="beer.name.$error.required">Expiration date is required.</span>
