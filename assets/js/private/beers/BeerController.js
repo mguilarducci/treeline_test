@@ -15,7 +15,7 @@ angular.module('BeerModule').controller('BeerController', ['$scope', '$http', '$
 			name: $scope.beerForm.name
 		})
 		.then(function onSuccess(sailsResponse) {
-			window.location = '#/beers';
+			window.location = '#/beers/' + sailsResponse.data.uniqueString;
 		})
 		.catch(function onError(sailsResponse) {
 
