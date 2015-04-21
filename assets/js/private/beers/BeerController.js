@@ -11,7 +11,7 @@ angular.module('BeerModule').controller('BeerController', ['$scope', '$http', '$
 		$scope.beerForm.loading = true;
 
 		// Submit request to Sails.
-		$http.post('/api/beers', {
+		$http.post('/beers', {
 			name: $scope.beerForm.name
 		})
 		.then(function onSuccess(sailsResponse) {
@@ -40,7 +40,7 @@ angular.module('BeerModule').controller('BeerController', ['$scope', '$http', '$
 		$scope.beerForm.loading = true;
 
 		// Submit request to Sails.
-		$http.post('/api/stock', {
+		$http.post('/stock', {
 			beerId: $scope.beer.uniqueString,
 			count: $scope.beerForm.count,
 			expirationDate: $scope.beerForm.expirationDate
@@ -63,7 +63,7 @@ angular.module('BeerModule').controller('BeerController', ['$scope', '$http', '$
 
 	$scope.findOne = function () {
 		$scope.beerForm.loading = true;
-		var url = '/api/beers/' + $routeParams.id;
+		var url = '/beers/' + $routeParams.id;
 		$http.get(url)
 			.then(function onSuccess(sailsResponse) {
 				$scope.beer = sailsResponse.data;
@@ -82,7 +82,7 @@ angular.module('BeerModule').controller('BeerController', ['$scope', '$http', '$
 
 	$scope.find = function() {
 		$scope.beerForm.loading = true;
-		$http.get('/api/beers')
+		$http.get('/beers')
 			.then(function onSuccess(sailsResponse) {
 				$scope.beers = sailsResponse.data;
 			})
@@ -99,7 +99,7 @@ angular.module('BeerModule').controller('BeerController', ['$scope', '$http', '$
 
 	$scope.findStock = function() {
 		$scope.beerForm.loading = true;
-		$http.get('/api/stock')
+		$http.get('/stock')
 			.then(function onSuccess(sailsResponse) {
 				$scope.beers = sailsResponse.data;
 			})

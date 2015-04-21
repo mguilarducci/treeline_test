@@ -1,12 +1,12 @@
 module.exports.routes = {
-  "get /api/stock": "ApiController.get_stock",
+  "post /stock": "StockController.post_create",
+  "post /beers": "BeersController.post_create",
+  "get /stock": "StockController.get_find",
+  "get /beers": "BeersController.get_find",
   "post /signup": "SignupController.post_create",
-  "post /api/stock": "ApiController.post_stock",
-  "post /api/beers": "ApiController.post_beers",
   "get /": "Home$Controller.find",
   "post /login": "LoginController.create",
   "get /logout": "LogoutController.find",
-  "get /api/beers": "ApiController.get_beers",
   "get /signup": "SignupController.get_find",
-  "get /api/beers/:id": "ApiController.beers_$id"
+  "get /beers/:id": "BeersController.$id"
 };
